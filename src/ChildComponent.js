@@ -1,30 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ChildComponent extends Component {
+export default function ChildComponent(props) {
+  const handleClick = e => props.changeColor(e.target.value);
 
-  handleClick(e) {
-    this.props.changeColor(e.target.value);
-  }
+  return (
+    <div className="child-component">
+      <h4>Child Component</h4>
 
-  render() {
-    return (
-      <div className="child-component">
-        <h4>Child Component</h4>
+      <button value="Red" onClick={handleClick}>
+        Red
+      </button>
 
-        <button value="Red" onClick={this.handleClick.bind(this)}>
-          Red
-        </button>
+      <button value="Blue" onClick={handleClick}>
+        Blue
+      </button>
 
-        <button value="Blue" onClick={this.handleClick.bind(this)}>
-          Blue
-        </button>
-
-        <button value="White" onClick={this.handleClick.bind(this)}>
-          White
-        </button>
-      </div>
-    );
-  }
+      <button value="White" onClick={handleClick}>
+        White
+      </button>
+    </div>
+  );
 }
-
-export default ChildComponent;
