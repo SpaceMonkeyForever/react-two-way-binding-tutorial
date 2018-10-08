@@ -6,18 +6,16 @@ export default function ChildComponent(props) {
   return (
     <div className="child-component">
       <h4>Child Component</h4>
-
-      <button value="Red" onClick={handleClick}>
-        Red
-      </button>
-
-      <button value="Blue" onClick={handleClick}>
-        Blue
-      </button>
-
-      <button value="White" onClick={handleClick}>
-        White
-      </button>
+      {["Red", "Blue", "White"].map(x => <Button element={x} key={x}></Button>)}
+      <Button element={props.extra}></Button>
     </div>
   );
+
+  function Button(props) {
+    return(
+    <button value={props.element} onClick={handleClick}>
+      {props.element}
+    </button>
+    );
+  }
 }

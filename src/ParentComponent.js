@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import ChildComponent from './ChildComponent';
 
-class ParentComponent extends Component {
+export default class ParentComponent extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      color: 'Select a color'
+      color: 'Select a color',
+      extra: "TestColor",
     };
 
     this.changeColor = this.changeColor.bind(this);
@@ -14,7 +15,7 @@ class ParentComponent extends Component {
 
   changeColor(newColor){
     this.setState({
-      color: newColor
+      color: newColor,
     });
   }
 
@@ -28,10 +29,8 @@ class ParentComponent extends Component {
           <h4>Parent Component</h4>
           <p>{color}</p>
         </header>
-        <ChildComponent changeColor={this.changeColor}/>
+        <ChildComponent changeColor={this.changeColor} extra={this.state.extra}/>
       </div>
     );
   }
 }
-
-export default ParentComponent;
