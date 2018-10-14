@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import ChildComponent from './ChildComponent';
 
-export default class ParentComponent extends Component {
+export class ParentComponent extends Component {
   constructor(props) {
     super(props)
     this.state = {
